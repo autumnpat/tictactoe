@@ -23,3 +23,8 @@
 
 ### Installing the rest of the dependencies
 1. Run the ansible playbook for your os, e.g. for a mac: `ansible-playbook -i ansible/inventory.ini ansible/mac-deps.yaml`
+
+### Setup Docker Desktop
+Docker Desktop should now be installed on your system.
+Go to your Applications/Start Menu or equivilent and start the Docker application and follow the prompts.
+You should now be able to run `docker ps` on your command line
