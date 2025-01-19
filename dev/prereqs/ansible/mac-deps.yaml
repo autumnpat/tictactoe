@@ -1,0 +1,23 @@
+---
+
+- name: Installing prereqs for mac
+  hosts: dev
+  tasks:
+    - name: ensure local tmp directory
+      command: mkdir -p ./tmp/
+
+    - name: download apple silicon dmg
+      get_url: url=https://desktop.docker.com/mac/main/arm64/Docker.dmg dest=./tmp/Docker.dmg
+
+    - name: mount install file
+      command: hdiutil attach ./tmp/Docker.dmg -nobrowse -mountpoint ./tmp/Docker
+
+    - name: install docker
+      command: cp -aR ./tmp/Docker/Docker.app /Applications/Docker.app
+
+    - name: unmount install file
+      command: hdiutil detach ./tmp/Docker/
+
+    - name: delete install file
+      command: rm -rf ./tmp
+
