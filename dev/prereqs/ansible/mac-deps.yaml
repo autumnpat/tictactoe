@@ -18,6 +18,23 @@
     - name: unmount install file
       command: hdiutil detach ./tmp/Docker/
 
+    - name: install fswatch (rerun unit tests on save)
+      command: brew install fswatch
+
+    - name: install make
+      command: brew install make
+
+    - name: install terraform
+      command: |
+        brew tap hashicorp/tap
+        brew install hashicorp/tap/terraform
+
+    - name: Download the awscli bundle
+      get_url: url=https://awscli.amazonaws.com/AWSCLIV2.pkg dest=tmp/AWSCLIV2.pkg
+
+    - name: Install awscli package.
+      shell: installer -pkg tmp/AWSCLIV2.pkg -target /
+
     - name: delete install file
       command: rm -rf ./tmp
 

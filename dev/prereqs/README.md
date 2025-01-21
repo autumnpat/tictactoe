@@ -4,7 +4,7 @@
 
 ### Mac
 
-1. [Install brew](https://brew.sh/)
+1. [Install brew](https://brew.sh/) `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 1. Install openssh: `brew install openssh`
 1. Turn on remote login: System Preference > General > Sharing > Advanced > Remote Login
 
@@ -21,10 +21,10 @@
     1. On most shells: `export PATH=$PATH:$HOME/.local/bin`
     1. You can also update your rc file typically: `~/.bashrc` or `~/.zshrc`
 
-### Installing the rest of the dependencies
+## Installing the rest of the dependencies
 1. Run the ansible playbook for your os, e.g. for a mac: `ansible-playbook -i ansible/inventory.ini ansible/mac-deps.yaml`
 
-### Setup Docker Desktop
+## Setup Docker Desktop
 Docker Desktop should now be installed on your system.
 Go to your Applications/Start Menu or equivilent and start the Docker application and follow the prompts.
 You should now be able to run `docker ps` on your command line
