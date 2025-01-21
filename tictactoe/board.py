@@ -16,6 +16,7 @@ class Board:
         """
         do_initialization allows for other board sizes and goal lengths
         """
+        self.straight = True
         self.xsize = xsize
         self.ysize = ysize
         self.goal = goal
@@ -78,7 +79,7 @@ class Board:
                 if result is not None:
                     return result
         #Now handle across if ycurrent == starts far enough left (since we're only doing straight lines)
-        if ycurrent <= self.ysize-self.goal:
+        if ycurrent <= self.ysize-self.goal or not self.straight:
             newy = ycurrent+1
             newx = xcurrent
             if self.check_next_square_match(player, newx, newy):

@@ -222,5 +222,51 @@ class TestSnakeBoard(unittest.TestCase):
         result = b.winner()
         self.assertEqual(result, playery)
 
+    def test_snake_5x5_goal6_starts_on_right_side(self):
+        playerx = player.Player('X')
+        playery = player.Player('O')
+        b = snake_board.SnakeBoard(5, 5, 6, False)
+        # X O - - -
+        # X O - X X
+        # X O - - X
+        # O - X X X
+        # - - - - -
+        moves = [
+            (0,0, playerx), (0,1, playery),
+            (1,0, playerx), (1,1, playery),
+            (2,0, playerx), (2,1, playery),
+            (3,0, playery), (1,3, playerx),
+            (1,4, playerx), (2,4, playerx),
+            (3,4, playerx), (3,3, playerx),
+            (3,2, playerx)
+        ]
+        for row, col, p in moves:
+            b.move(row, col, p)
+        result = b.winner()
+        self.assertEqual(result, playerx)
+
+    def test_snake_5x5_goal6_no_winner(self):
+        playerx = player.Player('X')
+        playery = player.Player('O')
+        b = snake_board.SnakeBoard(5, 5, 6, False)
+        # X O - - -
+        # X O - X X
+        # X O - - X
+        # O - - - -
+        # - - X X X
+        moves = [
+            (0,0, playerx), (0,1, playery),
+            (1,0, playerx), (1,1, playery),
+            (2,0, playerx), (2,1, playery),
+            (3,0, playery), (1,3, playerx),
+            (1,4, playerx), (2,4, playerx),
+            (4,4, playerx), (4,3, playerx),
+            (4,2, playerx)
+        ]
+        for row, col, p in moves:
+            b.move(row, col, p)
+        result = b.winner()
+        self.assertIsNone(result)
+
 if __name__ == '__main__':
     unittest.main()
