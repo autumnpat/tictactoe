@@ -47,4 +47,4 @@ Some variations I considered trying (that also informed my design):
 - Change the TF to allow a blue-green deployment strategy
 
 ## HOWTO
-For development, I created a directory `dev` with a [readme](dev/README.md) to get started (if you're on mac, sorry if you're not).
+For development, I created a directory `dev` with a [readme](dev/prereqs/README.md) to get started (if you're on mac, sorry if you're not).
